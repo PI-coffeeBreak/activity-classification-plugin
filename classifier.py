@@ -10,6 +10,7 @@ class ActivityClassifier:
     def initialize(self):
         """Initialize the zero-shot classification model."""
         try:
+            logger.info("Initializing activity classifier")
             self.classifier = pipeline(
                 "zero-shot-classification",
                 model="facebook/bart-large-mnli"
@@ -34,6 +35,3 @@ class ActivityClassifier:
             raise RuntimeError("Classifier not initialized. Call initialize() first.")
             
         return self.classifier(text, candidate_labels)
-
-# Create a singleton instance
-classifier = ActivityClassifier() 
