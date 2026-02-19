@@ -1,0 +1,5 @@
+[tool.coffeebreak]
+identifier = "activity-classification-plugin"
+name = "Activity Classification Plugin"
+description = "A plugin for classifying activities in a conference or event setting."
+config_page = true
