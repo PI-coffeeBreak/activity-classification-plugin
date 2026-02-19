@@ -1,13 +1,11 @@
 from .router import router
-import logging
 from .classifier import classifier
+import logging
 
 logger = logging.getLogger("coffeebreak.activity-classification")
 
-NAME = "Activity Classification Plugin"
-DESCRIPTION = "A plugin for classifying activities in a conference or event setting."
 
-async def register_plugin():    
+async def REGISTER():
     try:
         classifier.initialize()
         logger.debug("Activity classification plugin registered.")
@@ -15,10 +13,6 @@ async def register_plugin():
         logger.error(f"Failed to register activity classification plugin: {str(e)}")
         raise
 
-async def unregister_plugin():
+
+async def UNREGISTER():
     logger.debug("Activity classification plugin unregistered.")
-
-REGISTER = register_plugin
-UNREGISTER = unregister_plugin
-
-CONFIG_PAGE = True
